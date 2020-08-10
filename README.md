@@ -1,4 +1,11 @@
-.
+## Assets
+- Materialize css
+- Material Icons
+- [api data](https://google.com)
+- [loading svg](loading.io)
+
+## File Structure
+```
 ├── README.md
 ├── bundle.js
 ├── img
@@ -14,6 +21,4 @@
 ├── pages
 │   ├── 404.html
 │   └── failed-fetch.html
-└── sw.js
-
-2 directories, 14 files
+└── sw.js```
