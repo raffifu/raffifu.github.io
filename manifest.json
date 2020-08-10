@@ -1,0 +1,44 @@
+{
+  "name": "Berita Bola",
+  "short_name": "B.Bola",
+  "description": "Cari informasi bola terkini",
+  "gcm_sender_id": "623287869011",
+  "lang": "en-US",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "#F2C94C",
+  "background_color": "#FFFFFF",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "img/logo-128x128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "maskable"
+    },
+    {
+      "src": "img/logo-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "img/logo-256x256.png",
+      "type": "image/png",
+      "sizes": "256x256",
+      "purpose": "maskable"
+    },
+    {
+      "src": "img/logo-384x384.png",
+      "type": "image/png",
+      "sizes": "384x384",
+      "purpose": "maskable"
+    },
+    {
+      "src": "img/logo-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ]
+}
