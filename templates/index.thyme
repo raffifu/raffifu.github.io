@@ -1,0 +1,55 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="header.thyme::head"/>
+	<body>
+		<div th:replace="nav.thyme::nav"/>
+		
+		<header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Clean Blog</h1>
+                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+		
+		<!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div th:each="post : ${published_posts}" class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+					<div class="post-preview">
+						<a th:href='${post.uri}' href='href'>
+                            <h2 class="post-title" th:text='${post.title}'>
+								Man must explore, and this is exploration at its greatest
+							</h2>
+                            <h3 class="post-subtitle" th:if='${post.description}' th:text='${post.description}'>
+								Problems look mighty small from 150 miles up
+							</h3>
+                        </a>
+
+						<p class="post-meta">
+                            Posted by
+                            <a th:text='${post.author} ?: ${config.site_author}' href="#!">Start Bootstrap</a>
+                            on 
+							<span th:text='${#dates.format(post.date,"MMMM dd, yyyy")}'>June 10, 2017</span>
+                        </p>
+					</div>
+                    <hr class="my-4" />
+                </div>
+            </div>
+        </div>
+		
+		<div th:replace="footer.thyme::footer"></div>
+		
+		<!-- Bootstrap core JS-->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+		<!-- Core theme JS-->
+		<script src="js/scripts.js"></script>
+    </body>
+</html>
