@@ -1,23 +1,29 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="header.thyme::head"/>
-	<body onload="prettyPrint()">
-	<div id="wrap">
-		<div th:replace="nav.thyme::nav"/>
-		<div class="container">
-	
-			<div class="page-header">
-				<h1 th:text='${content.title}'>title</h1>
+	<head th:replace="head.thyme::head"/>
+	<body>
+		<div th:replace="header.thyme::header(title=${content.title})"></div>
+
+		<main class="mb-4">
+			<div class="d-flex justify-content-center text-muted fs-6">
+				<p class="font-monospace m-0 px-1" th:text="|👤 ${content.author}|"></p>
+				<p class="font-monospace m-0 px-1" th:text='|🗓️ ${#dates.format(content.date,"dd MMMM yyyy")}|'></p>
 			</div>
+
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7" th:utext='${content.body}'>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+		<div th:replace="footer.thyme::footer"></div>
 		
-			<p><em th:text='${#dates.format(content.date,"dd MMMM yyyy")}'>date</em></p>
-		
-			<p th:utext='${content.body}'>body</p>
-		
-			<hr />
-		</div>
-	</div>
-	<div th:replace="footer.thyme::footer"></div>
+		<!-- Bootstrap core JS-->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+		<!-- Core theme JS-->
+		<script src="js/scripts.js"></script>
     </body>
 </html>
