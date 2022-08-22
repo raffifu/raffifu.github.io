@@ -8,10 +8,7 @@
 		<article class="mb-4">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
-					<div class="d-flex justify-content-center text-muted fs-6">
-						<p class="font-monospace m-0 px-1" th:text="|👤 ${content.author}|"></p>
-						<p class="font-monospace m-0 px-1" th:text='|🗓️ ${#dates.format(content.date,"dd MMMM yyyy")}|'></p>
-					</div>
+					<div th:replace="author.thyme::author"></div>
                     <div class="col-md-10 col-lg-8 col-xl-7" th:utext='${content.body}'>
                     </div>
                 </div>
