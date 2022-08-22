@@ -24,7 +24,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="small text-center text-muted font-monospace" th:text="|Last baked at ${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm:ss')}|"></div>
+                        <div class="small text-center text-muted font-monospace" th:text="|Baked at ${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm:ss')}|"></div>
                     </div>
                 </div>
             </div>
