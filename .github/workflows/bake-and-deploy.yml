@@ -1,0 +1,43 @@
+name: Bake and Push to master branch
+
+on:
+  push:
+    branches: [ master ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  bake-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '8'
+      - name: Setup Jbake
+        run: |
+          curl -s "https://get.sdkman.io" | bash
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
+          sdk install jbake
+      - name: Generate Site
+        run: |
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
+          jbake -b
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: 'output'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
