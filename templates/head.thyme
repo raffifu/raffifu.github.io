@@ -3,9 +3,7 @@
 	<head th:fragment="head">
 		<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Clean Blog - Start Bootstrap Theme</title>
+        <title th:with="page=${content.title} ?: 'Home'" th:text="|Blog - ${page}|">Blog | Home</title>
         <link rel="icon" type="image/x-icon" th:href="|${content.rootpath}favicon.ico|" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
