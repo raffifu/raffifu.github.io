@@ -9,4 +9,4 @@ status=published
 Finally, i created a blog.
 
 ### Who am i?
-I'm a Computer Science student. read more [about me](http://localhost:8820/about.html)
+I'm a Computer Science student. read more [about me](/about.html)
