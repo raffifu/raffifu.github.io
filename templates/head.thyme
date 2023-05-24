@@ -7,7 +7,7 @@
         <link rel="icon" type="image/x-icon" th:href="|${content.rootpath}favicon.ico|" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <script async defer data-website-id="a925f0f8-8959-4843-a466-481b486032ad" src="https://umami.btw.my.id/umami.js"></script>
+        <script async defer data-website-id="45381b05-7b79-45de-9079-d50d1c9dafe5" src="https://analytics.raffifu.me/umami.js"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
