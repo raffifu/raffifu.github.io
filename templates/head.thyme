@@ -3,6 +3,9 @@
 	<head th:fragment="head">
 		<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta property="og:title" th:with="page=${content.title} ?: 'Raffifu\'s Blog'" th:content="${page}" />
+        <meta property="og:description" th:with="page=${content.description} ?: 'Blog for sharing about technology'" th:content="${page}" />
+        <meta property="og:url" th:with="content_uri=${content.uri} ?: ''" th:content="|${config.site_host}${content_uri}|" />
         <title th:with="page=${content.title} ?: 'Home'" th:text="|Blog - ${page}|">Blog | Home</title>
         <link rel="icon" type="image/x-icon" th:href="|${content.rootpath}favicon.ico|" />
         <!-- Font Awesome icons (free version)-->
