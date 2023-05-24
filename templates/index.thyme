@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 	<head th:replace="head.thyme::head"/>
 	<body>		
-		<div th:replace="header.thyme::header(title='Blog')"></div>
+		<div th:replace="header.thyme::header(title=${config.site_name})"></div>
 		
 		<!-- Main Content-->
         <div class="container px-4 px-lg-5">

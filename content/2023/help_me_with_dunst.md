@@ -1,5 +1,6 @@
-title=Membuat fitur help-me dengan menggunakan  Dunst
-description=Menjadikan dunst untuk menampilkan isi dari file helper
+title=Membuat fitur help-me dengan menggunakan Dunst
+description=Dunst merupakan sebuah lightweight notification-daemon atau lebih gampangnya sebuah software yang akan menampilkan notifikasi di laptop.
+image=https://github.com/raffifu/raffifu.github.io/assets/22138274/f0d586f6-8a03-49cc-b5e3-26edade6e85c
 date=2023-05-23
 type=post
 status=published
@@ -78,3 +79,4 @@ bindsym $mod+Shift+slash exec help-me
 ```
 
 Semoga bermanfaat
+````
