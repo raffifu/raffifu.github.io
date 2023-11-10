@@ -1,1 +1,6 @@
-img, object, embed { max-width: 100%; height: auto; }
+img,
+object,
+embed {
+    width: 100%;
+    height: auto;
+}
