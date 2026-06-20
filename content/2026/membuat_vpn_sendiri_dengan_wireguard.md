@@ -12,15 +12,13 @@ Kalau dianalogikan vpn malah menambahkan hop baru karena routing yang seharusnya
 
 ![Komparasi menggunakan VPN](https://s3.asd.web.id/blog/photo_2026-06-20_21-42-17.jpg)
 
-> Note:
-> Memang ada beberapa faktor yang bisa menyebabkan koneksi jadi lebih stabil, seperti ISP throttling (aktivitas seperti gaming atau streaming sengaja dibatasi speednya) dan routing ISP. Dengan VPN kita tentu bisa melewati ISP throttling karena packet yang terenkripsi & mungkin saja routing VPN akan lebih baik dibanding ISP.
-
 Sayangnya, paket vpn yang saya coba hanya memiliki speed maksimal 20Mbps yang overall membuat speed internet saya turun. Hal ini menjadikan saya tertarik untuk mencoba membuat vpn server sendiri.
 
 ## Prerequisite - Membeli VM
 Untuk uji coba ini saya akan pakai layanan dari https://8labs.id dengan spesifikasi 1vCPU 1GB Memory Elasticlabs NAT. VM ini tidak memiliki public ip tapi kita bisa request untuk port forwarding. Dengan hanya Rp. 4,250 / minggu kita sudah mendapat semuanya + bandwith 5TB + outgoing mullvad vpn. Cukup murah untuk sebuah eksprimen.
 
 Tetapi apabila ingin mencoba cloud provider lain ada beberapa hal yang dapat dipertimbangkan supaya mendapatkan performance yang maksimal:
+
 1. Lokasi di Indonesia (pilih latensi paling minimal dari ISP anda ke cloud provider)
 2. Harga terjangkau
 3. Generous Bandwidth
@@ -85,9 +83,15 @@ AllowedIPs = 0.0.0.0/0,::/0
 
 Dapat dilihat keduanya memiliki struktur konfigurasi yang mirip, masing-masing memiliki konfigurasi virtual network adapter yang dikonfigurasi sebagai block "Interface" dan remote target yang disetup dalam block "Peer". Untuk mencoba konfigurasi tersebut di android, saya menginstall client wireguard dari laman [berikut ini](https://download.wireguard.com/android-client/)
 ## Limitasi
-Sayangnya ISP yang dipakai oleh VM ElasticLabs NAT ini memiliki proteksi UDP Flooding. Sehingga setiap saya melakukan speedtest, vpn yang dipakai suka mati sendiri. Walaupun sudah coba reconnect ulang tapi sama saja. Solusinya adalah mendapatkan IP Public baru dengan toggle mode pesawat. Secara overall, saya sudah mencoba lebih dari satu hari untuk dua device dan semuanya keduanya aman. Berikut merupakan summary dengan vpn:
+Sayangnya ISP yang dipakai oleh VM ElasticLabs NAT ini memiliki proteksi UDP Flooding. Sehingga setiap saya melakukan speedtest, vpn yang dipakai suka mati sendiri. Walaupun sudah coba reconnect ulang tapi sama saja. Solusinya adalah mendapatkan IP Public baru dengan toggle mode pesawat.
+
+## Kesimpulan
+
+Secara overall, saya sudah mencoba lebih dari satu hari untuk dua konfigurasi device dan semuanya tidak ada kendala sama sekali. Dengan bermodalkan Rp. 4,250 / minggu, kita bisa mendapat VPN dengan dengan outgoing connectiom Mullvad. Berikut merupakan summary dengan vpn:
 
 ![Hasil Akhir Komparasi VPN Server Sendiri](https://s3.asd.web.id/blog/photo_2026-06-20_21-42-40.jpg)
+
+Terlihat memang performa network lebih baik menggunakan vpn. Hal ini bisa terjadi karena beberapa faktor seperti dengan VPN bisa melakukan bypass ISP throttling (aktivitas seperti gaming atau streaming sengaja dibatasi speednya) karena paket yang terenkripsi dan routing yang lebih baik.
 
 ## Additonal Information
 Setup VPN dari tulisan ini tentu saja manual dan susah diimplementasikan untuk skala user yang lebih besar. Ada salah satu tools yang pernah saya gunakan ketika setup vpn untuk skala perusahaan, yaitu [pritunl](https://github.com/pritunl/pritunl). Singkatnya dengan pritunl kita bisa monitoring user, manage user & memilih protocol secara lebih mudah dengan GUI. Tentu saja aplikasi ini open source.
