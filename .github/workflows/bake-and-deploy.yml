@@ -27,7 +27,7 @@ jobs:
         run: |
           curl -s "https://get.sdkman.io" | bash
           source "$HOME/.sdkman/bin/sdkman-init.sh"
-          sdk install jbake
+          sdk install jbake 2.6.7
       - name: Generate Site
         run: |
           source "$HOME/.sdkman/bin/sdkman-init.sh"
