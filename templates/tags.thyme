@@ -20,16 +20,14 @@
                             </h3>
                         </a>
 
-                        <p class="post-meta mb-2">
-                            Posted by
-                            <a th:text='${post.author} ?: ${config.site_author}' href="#!">Start Bootstrap</a>
-                            on 
-                            <span th:text='${#dates.format(post.date,"MMMM dd, yyyy")}'>June 10, 2017</span>
-                        </p>
-                        <div class="text-muted font-monospace small" th:if="${post.tags}">
-                            <i class="fas fa-tags me-1"></i>
-                            <span th:each="tag, iterStat : ${post.tags}">
-                                <a th:href="|${content.rootpath}tags/${tag}.html|" th:text="${tag}"></a><span th:if="${!iterStat.last}">, </span>
+                        <div class="d-flex flex-wrap text-muted font-monospace small mt-2 mb-2">
+                            <span class="me-3" th:with="author=${post.author} ?: ${config.site_author}" th:text="|👤 ${author}|"></span>
+                            <span class="me-3" th:text='|🗓️ ${#dates.format(post.date,"dd MMMM yyyy")}|'></span>
+                            <span th:if="${post.tags}">
+                                <i class="fas fa-tags me-1"></i>
+                                <span th:each="tag, iterStat : ${post.tags}">
+                                    <a th:href="|${content.rootpath}tags/${tag}.html|" th:text="${tag}"></a><span th:if="${!iterStat.last}">, </span>
+                                </span>
                             </span>
                         </div>
                     </div>
