@@ -2,6 +2,7 @@ title=Hardening Server - A guide using iptables
 description=The most generic way to setup an firewall on linux
 date=2023-08-13
 type=post
+tags=linux, security
 status=published
 ~~~~~~
 The basic concept of hardening a server is thinking about the possible “way” how an attacker can access our server. Often, an attacker will scan our server to find an open port or simply use a common port such as ssh, http, ftp, etc. When the port is accessible the attacker can launch a bot to bruteforce the password or to find vulnerability on the server. Hardening means an effort to protect a server by making it more difficult for bot/attacker to do their action.

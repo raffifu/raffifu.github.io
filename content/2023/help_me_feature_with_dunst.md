@@ -3,6 +3,7 @@ description=Dunst merupakan sebuah lightweight notification-daemon atau lebih ga
 image=https://github.com/raffifu/raffifu.github.io/assets/22138274/f0d586f6-8a03-49cc-b5e3-26edade6e85c
 date=2023-05-23
 type=post
+tags=linux, ricing
 status=published
 ~~~~~~
 
