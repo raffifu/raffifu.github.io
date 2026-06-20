@@ -3,7 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 	<body>
         <header class="container p-4 p-lg-5" th:fragment="header(title)">
-            <h1 class="text-center" th:text="${title}">Blog</h1>
+            <h1 class="text-center font-monospace mb-4">
+                <span style="color: #69ff94;">raffifu@blog</span><span class="text-white">:</span><span style="color: #82aaff;">~</span><span class="text-white">$</span>
+                <span th:text="${title}" class="ms-1">Blog</span><span class="blinking-cursor">_</span>
+            </h1>
             <div class="d-flex justify-content-center">
                 <a class="font-monospace p-2" href="/">Home</a>
                 <a class="font-monospace p-2" href="/about.html">About</a>
