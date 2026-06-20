@@ -37,6 +37,7 @@ chmod +x wireguard-install.sh
 ```
 
 Secara garis besar yang akan dilakukan oleh script diatas adalah:
+
 1. Install wireguard dan beberapa dependensi (iptables, resolvconf)
 2. Buat konfigurasi untuk server yang meliputi:
 	- Generate private key & public key untuk server
