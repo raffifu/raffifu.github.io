@@ -79,4 +79,3 @@ bindsym $mod+Shift+slash exec help-me
 ```
 
 Semoga bermanfaat
-````
