@@ -27,3 +27,32 @@ window.addEventListener('DOMContentLoaded', () => {
         scrollPos = currentTop;
     });
 })
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    // Auto-generate captions for markdown images
+    const contentImages = document.querySelectorAll('article p img, main p img');
+    contentImages.forEach(img => {
+        if (img.alt && img.alt.trim() !== '') {
+            const figure = document.createElement('figure');
+            figure.className = 'text-center mt-4 mb-4';
+            
+            const parent = img.parentNode;
+            if (parent.tagName === 'P' && parent.childNodes.length === 1) {
+                parent.parentNode.insertBefore(figure, parent);
+                figure.appendChild(img);
+                parent.remove();
+            } else {
+                parent.insertBefore(figure, img);
+                figure.appendChild(img);
+            }
+            
+            img.classList.add('img-fluid', 'rounded');
+            
+            const figcaption = document.createElement('figcaption');
+            figcaption.className = 'figure-caption text-center text-muted small mt-2';
+            figcaption.innerHTML = `<i>*${img.alt}*</i>`;
+            figure.appendChild(figcaption);
+        }
+    });
+});
