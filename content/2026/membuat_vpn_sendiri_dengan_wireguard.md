@@ -10,7 +10,7 @@ Minggu lalu saya melihat postingan di linkedin tentang vpn murah dari https://sa
 
 Kalau dianalogikan vpn malah menambahkan hop baru karena routing yang seharusnya direct ke server target sekarang harus melalui vpn terlebih dahulu. Belum lagi ada step tambahan yaitu decrypt & encrypt packet. Sehingga seharusnya akan lebih lambat, tapi menariknya setelah mencoba servicenya, packet lost internet saya berkurang dan menjadi stabil. seperti terlampir pada gambar berikut:
 
-![Komparasi menggunakan VPN](https://github.com/user-attachments/assets/420b9321-4031-4652-b37e-aa5e597c0cb7)
+![Komparasi menggunakan VPN](https://s3.asd.web.id/blog/photo_2026-06-20_21-42-17.jpg)
 
 > Note:
 > Memang ada beberapa faktor yang bisa menyebabkan koneksi jadi lebih stabil, seperti ISP throttling (aktivitas seperti gaming atau streaming sengaja dibatasi speednya) dan routing ISP. Dengan VPN kita tentu bisa melewati ISP throttling karena packet yang terenkripsi & mungkin saja routing VPN akan lebih baik dibanding ISP.
@@ -87,7 +87,7 @@ Dapat dilihat keduanya memiliki struktur konfigurasi yang mirip, masing-masing m
 ## Limitasi
 Sayangnya ISP yang dipakai oleh VM ElasticLabs NAT ini memiliki proteksi UDP Flooding. Sehingga setiap saya melakukan speedtest, vpn yang dipakai suka mati sendiri. Walaupun sudah coba reconnect ulang tapi sama saja. Solusinya adalah mendapatkan IP Public baru dengan toggle mode pesawat. Secara overall, saya sudah mencoba lebih dari satu hari untuk dua device dan semuanya keduanya aman. Berikut merupakan summary dengan vpn:
 
-![Hasil Akhir Komparasi VPN Server Sendiri](https://github.com/user-attachments/assets/14c7552a-df77-4a0e-a852-c9f31be10251)
+![Hasil Akhir Komparasi VPN Server Sendiri](https://s3.asd.web.id/blog/photo_2026-06-20_21-42-40.jpg)
 
 ## Additonal Information
 Setup VPN dari tulisan ini tentu saja manual dan susah diimplementasikan untuk skala user yang lebih besar. Ada salah satu tools yang pernah saya gunakan ketika setup vpn untuk skala perusahaan, yaitu [pritunl](https://github.com/pritunl/pritunl). Singkatnya dengan pritunl kita bisa monitoring user, manage user & memilih protocol secara lebih mudah dengan GUI. Aplikasi ini open source

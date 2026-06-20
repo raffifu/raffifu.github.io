@@ -7,7 +7,7 @@
         <meta name="msapplication-navbutton-color" content="#212529">
         <meta name="apple-mobile-web-app-status-bar-style" content="#212529">
 
-        <meta property="og:title" th:with="page=${content.title} ?: 'Raffifu\'s Blog'" th:content="${page}" />
+        <meta property="og:title" th:with="page=${content.title} ?: '/home/raffifu/blog'" th:content="${page}" />
         <meta property="og:description" th:with="page=${content.description} ?: 'Blog for sharing about technology'" th:content="${page}" />
         <meta property="og:url" th:with="content_uri=${content.uri} ?: ''" th:content="|${config.site_host}${content_uri}|" />
         <meta property="og:image" th:content="${content.image} ?: ${config.site_image}">
@@ -18,7 +18,7 @@
 
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@raffifuu">
-        <meta name="twitter:title" th:with="page=${content.title} ?: 'Raffifu\'s Blog'" th:content="${page}">
+        <meta name="twitter:title" th:with="page=${content.title} ?: '/home/raffifu/blog'" th:content="${page}">
         <meta name="twitter:description" th:with="page=${content.description} ?: 'Blog for sharing about technology'" th:content="${page}" >
         <meta name="twitter:image" th:content="${content.image} ?: ${config.site_image}">
 
