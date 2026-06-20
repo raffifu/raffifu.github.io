@@ -4,3 +4,15 @@ embed {
     width: 100%;
     height: auto;
 }
+
+/* Terminal Blinking Cursor */
+.blinking-cursor {
+    font-weight: bold;
+    color: #ffffff;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
