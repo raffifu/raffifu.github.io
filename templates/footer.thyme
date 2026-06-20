@@ -11,7 +11,7 @@
                                 <a href="https://twitter.com/raffifuu">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                        <i class="fab fa-twitter fa-stack-1x text-black"></i>
                                     </span>
                                 </a>
                             </li>
@@ -19,7 +19,7 @@
                                 <a href="https://github.com/raffifu">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                        <i class="fab fa-github fa-stack-1x text-black"></i>
                                     </span>
                                 </a>
                             </li>
