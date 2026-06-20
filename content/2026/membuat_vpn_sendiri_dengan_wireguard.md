@@ -3,6 +3,7 @@ description=Eksperimen membuat VPN server di linux
 date=2026-06-20
 type=post
 status=published
+tags=linux, vpn
 thumbnail=https://i.imgur.com/VDMUIjP.jpeg
 ~~~~~~
 Minggu lalu saya melihat postingan di linkedin tentang vpn murah dari https://santainetwork.id/ dan saya tertarik dengan testimoninya yang menyatakan "...menghilangkan packet loss dari ISP dari game online saya...". Pernyataan ini membuat saya bertanya sekaligus mencoba service tersebut untuk membuktikannya. 
