@@ -4,7 +4,9 @@
 	<body>
         <header class="container p-4 p-lg-5" th:fragment="header(title)">
             <h1 class="text-center font-monospace mb-4">
-                <span class="text-white" th:if="${content == null or content.type != 'post'}">$ ls</span>
+                <span class="text-white" th:if="${content == null or content.type == 'masterindex'}">$ ls</span>
+                <span class="text-white" th:if="${content == null or content.type == 'tag'}">$ grep</span>
+                <span class="text-white" th:if="${content == null or content.type == 'page'}">$ cat</span>
                 <span th:text="${title}" class="ms-2">Blog</span><span class="blinking-cursor">_</span>
             </h1>
             <div class="d-flex justify-content-center">

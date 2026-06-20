@@ -90,4 +90,4 @@ Sayangnya ISP yang dipakai oleh VM ElasticLabs NAT ini memiliki proteksi UDP Flo
 ![Hasil Akhir Komparasi VPN Server Sendiri](https://s3.asd.web.id/blog/photo_2026-06-20_21-42-40.jpg)
 
 ## Additonal Information
-Setup VPN dari tulisan ini tentu saja manual dan susah diimplementasikan untuk skala user yang lebih besar. Ada salah satu tools yang pernah saya gunakan ketika setup vpn untuk skala perusahaan, yaitu [pritunl](https://github.com/pritunl/pritunl). Singkatnya dengan pritunl kita bisa monitoring user, manage user & memilih protocol secara lebih mudah dengan GUI. Aplikasi ini open source
+Setup VPN dari tulisan ini tentu saja manual dan susah diimplementasikan untuk skala user yang lebih besar. Ada salah satu tools yang pernah saya gunakan ketika setup vpn untuk skala perusahaan, yaitu [pritunl](https://github.com/pritunl/pritunl). Singkatnya dengan pritunl kita bisa monitoring user, manage user & memilih protocol secara lebih mudah dengan GUI. Tentu saja aplikasi ini open source.
