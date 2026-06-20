@@ -16,6 +16,16 @@
 
 					<div class="col-md-10 col-lg-8 col-xl-7" th:utext='${content.body}'>
 					</div>
+
+					<div class="col-md-10 col-lg-8 col-xl-7 mt-5" th:if="${content.tags}">
+						<hr class="mb-4" />
+						<p class="text-muted font-monospace small">
+							<i class="fas fa-tags me-2"></i>Tags: 
+							<span th:each="tag, iterStat : ${content.tags}">
+								<a th:href="|${content.rootpath}tags/${tag}.html|" th:text="${tag}"></a><span th:if="${!iterStat.last}">, </span>
+							</span>
+						</p>
+					</div>
 				</div>
 			</div>
 		</article>
