@@ -4,7 +4,7 @@
 	<body>
         <header class="container p-4 p-lg-5" th:fragment="header(title)">
             <h1 class="text-center font-monospace mb-4">
-                <span style="color: #82aaff;">~</span><span class="text-white">$</span>
+                <span class="text-white">$ </span><span class="text-white" th:if="${content == null or content.type != 'post'}">ls </span>
                 <span th:text="${title}" class="ms-2">Blog</span><span class="blinking-cursor">_</span>
             </h1>
             <div class="d-flex justify-content-center">
