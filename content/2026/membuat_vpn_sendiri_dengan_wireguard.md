@@ -1,11 +1,12 @@
-title=Membuat VPN Sendiri dengan Wireguard
-description=Eksperimen membuat VPN server di linux
-date=2026-06-20
-type=post
-status=published
-tags=linux, vpn
-thumbnail=https://i.imgur.com/VDMUIjP.jpeg
-~~~~~~
+---
+title: "Membuat VPN Sendiri dengan Wireguard"
+description: "Eksperimen membuat VPN server di linux"
+date: "2026-06-20"
+type: "post"
+status: "published"
+tags: ["linux", "vpn"]
+thumbnail: "https://i.imgur.com/VDMUIjP.jpeg"
+---
 Minggu lalu saya melihat postingan di linkedin tentang vpn murah dari https://santainetwork.id/ dan saya tertarik dengan testimoninya yang menyatakan "...menghilangkan packet loss dari ISP dari game online saya...". Pernyataan ini membuat saya bertanya sekaligus mencoba service tersebut untuk membuktikannya. 
 
 Kalau dianalogikan vpn malah menambahkan hop baru karena routing yang seharusnya direct ke server target sekarang harus melalui vpn terlebih dahulu. Belum lagi ada step tambahan yaitu decrypt & encrypt packet. Sehingga seharusnya akan lebih lambat, tapi menariknya setelah mencoba servicenya, packet lost internet saya berkurang dan menjadi stabil. seperti terlampir pada gambar berikut:

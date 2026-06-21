@@ -1,11 +1,12 @@
-title=Membuat fitur help-me dengan menggunakan Dunst
-description=Dunst merupakan sebuah lightweight notification-daemon atau lebih gampangnya sebuah software yang akan menampilkan notifikasi di laptop.
-image=https://github.com/raffifu/raffifu.github.io/assets/22138274/f0d586f6-8a03-49cc-b5e3-26edade6e85c
-date=2023-05-23
-type=post
-tags=linux, ricing
-status=published
-~~~~~~
+---
+title: "Membuat fitur help-me dengan menggunakan Dunst"
+description: "Dunst merupakan sebuah lightweight notification-daemon atau lebih gampangnya sebuah software yang akan menampilkan notifikasi di laptop."
+image: "https://github.com/raffifu/raffifu.github.io/assets/22138274/f0d586f6-8a03-49cc-b5e3-26edade6e85c"
+date: "2023-05-23"
+type: "post"
+tags: ["linux", "ricing"]
+status: "published"
+---
 
 Tulisan ini terinspirasi dari blog ["BanditHijo - Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut"](https://bandithijo.dev/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut). Kali ini saya akan modifikasi tutorial tersebut dengan menggunakan `wofi` sebagai launcher pengganti `rofi` di wayland.
 

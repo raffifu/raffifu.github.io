@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+        <meta name="author" content="{{ .Site.Params.author }}" />
+
+        <meta name="theme-color" content="#212529">
+        <meta name="msapplication-navbutton-color" content="#212529">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#212529">
+
+        <meta property="og:title" content="{{ if .IsHome }}/home/raffifu/blog{{ else }}{{ .Title }}{{ end }}" />
+        <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+        <meta property="og:url" content="{{ .Permalink }}" />
+        <meta property="og:image" content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ .Site.Params.image | absURL }}{{ end }}">
+        <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+        <meta property="og:locale" content="id_ID" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:site_name" content="{{ .Site.Title }}" />
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@raffifuu">
+        <meta name="twitter:title" content="{{ if .IsHome }}/home/raffifu/blog{{ else }}{{ .Title }}{{ end }}">
+        <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" >
+        <meta name="twitter:image" content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ .Site.Params.image | absURL }}{{ end }}">
+
+        <title>{{ if .IsHome }}Blog - Home{{ else }}Blog - {{ .Title }}{{ end }}</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Highlight.js Theme -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+        <link href="/css/custom.css" rel="stylesheet" />
+    </head>
+    <body>
+        {{ partial "header.html" . }}
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    {{ block "main" . }}{{ end }}
+                </div>
+            </div>
+        </div>
+        {{ partial "footer.html" . }}
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>

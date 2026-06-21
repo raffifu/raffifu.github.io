@@ -1,10 +1,11 @@
-title=Hardening Server - A guide using iptables
-description=The most generic way to setup an firewall on linux
-date=2023-08-13
-type=post
-tags=linux, security
-status=published
-~~~~~~
+---
+title: "Hardening Server - A guide using iptables"
+description: "The most generic way to setup an firewall on linux"
+date: "2023-08-13"
+type: "post"
+tags: ["linux", "security"]
+status: "published"
+---
 The basic concept of hardening a server is thinking about the possible “way” how an attacker can access our server. Often, an attacker will scan our server to find an open port or simply use a common port such as ssh, http, ftp, etc. When the port is accessible the attacker can launch a bot to bruteforce the password or to find vulnerability on the server. Hardening means an effort to protect a server by making it more difficult for bot/attacker to do their action.
 As an administrator, restricting the open port on the network is one example of hardening action. On linux, `iptables` is the generic way to filter the connection. But, There’s other option using `ufw` or `firewalld` (in fact that application interacts with `iptables`). The concept of `iptables` is chaining the rule like the image below
 !["Iptables diagram" by SUPRIYO BISWAS is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/?ref=openverse](https://github.com/raffifu/raffifu.github.io/assets/22138274/effd91fa-67aa-4ad2-9487-c3a6d0b703e2)

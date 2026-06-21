@@ -1,0 +1,14 @@
+baseURL = "https://raffifu.github.io/"
+title = "/var/log/raffifu"
+
+[params]
+  author = "Raffi Utama"
+  image = "https://github.com/raffifu/raffifu.github.io/assets/22138274/f890867e-bad8-408a-b0f8-ed5ef88b4f16"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[taxonomies]
+  tag = "tags"

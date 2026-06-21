@@ -1,8 +1,9 @@
-title=About
-date=2022-8-22
-type=page
-status=published
-~~~~~~
+---
+title: "About"
+date: "2022-08-22"
+type: "page"
+status: "published"
+---
 > "All we have to decide is what to do with the time that is given us.” 
 > - Gandalf
 

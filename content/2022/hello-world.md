@@ -1,9 +1,10 @@
-title=Hello World
-description=Finally, i created a blog
-date=2022-8-22
-type=post
-status=published
-~~~~~~
+---
+title: "Hello World"
+description: "Finally, i created a blog"
+date: "2022-08-22"
+type: "post"
+status: "published"
+---
 > System.out.println("Hello World");
 
 Finally, i created a blog.

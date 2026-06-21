@@ -1,0 +1,30 @@
+<header class="container p-4 p-lg-5">
+    {{ $cmd := "" }}
+    {{ $text := .Title }}
+
+    {{ if .IsHome }}
+        {{ $cmd = "ls" }}
+        {{ $text = .Site.Title }}
+    {{ else if eq .Kind "term" }}
+        {{ $cmd = "grep" }}
+        {{ $text = printf "tags:%s" (lower .Title) }}
+    {{ else if eq .Kind "taxonomy" }}
+        {{ $cmd = "less" }}
+        {{ $text = printf "/var/log/%s" (lower .Title) }}
+    {{ else if and .IsPage (eq .Type "page") }}
+        {{ $cmd = "cat" }}
+    {{ end }}
+
+    <h1 class="text-center font-monospace mb-4">
+        {{ if $cmd }}
+        <span class="text-white">$ {{ $cmd }}</span>
+        {{ end }}
+        <span>{{ $text }}</span><span class="blinking-cursor">_</span>
+    </h1>
+    <div class="d-flex justify-content-center">
+        <a class="font-monospace p-2" href="/">Home</a>
+        <a class="font-monospace p-2" href="/about/">About</a>
+        <a class="font-monospace p-2" href="/tags/">Tags</a>
+        <a class="font-monospace p-2" href="/index.xml">RSS</a>
+    </div>
+</header>
