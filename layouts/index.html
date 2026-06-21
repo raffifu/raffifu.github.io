@@ -1,5 +1,6 @@
 {{ define "main" }}
-    {{ range where .Site.RegularPages "Type" "post" }}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
+    {{ range $paginator.Pages }}
         <!-- Post preview-->
         <div class="post-preview">
             <a href="{{ .Permalink }}">
@@ -23,5 +24,21 @@
             </div>
         </div>
         <hr class="my-4" />
+    {{ end }}
+
+    {{ if gt $paginator.TotalPages 1 }}
+    <div class="d-flex justify-content-between mt-5 font-monospace">
+        {{ if $paginator.HasPrev }}
+        <a class="btn btn-outline-dark" href="{{ $paginator.Prev.URL }}">&lt; cd prev</a>
+        {{ else }}
+        <span></span>
+        {{ end }}
+        
+        {{ if $paginator.HasNext }}
+        <a class="btn btn-outline-dark" href="{{ $paginator.Next.URL }}">cd next &gt;</a>
+        {{ else }}
+        <span></span>
+        {{ end }}
+    </div>
     {{ end }}
 {{ end }}

@@ -13,6 +13,8 @@
         {{ $text = printf "/var/log/%s" (lower .Title) }}
     {{ else if and .IsPage (eq .Type "page") }}
         {{ $cmd = "cat" }}
+    {{ else if eq .Kind "404" }}
+        {{ $text = "Error" }}
     {{ end }}
 
     <h1 class="text-center font-monospace mb-4">

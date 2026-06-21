@@ -12,3 +12,5 @@ title = "/var/log/raffifu"
 
 [taxonomies]
   tag = "tags"
+
+paginate = 5
