@@ -4,13 +4,21 @@ title = "/var/log/raffifu"
 [params]
   author = "Raffi Utama"
   image = "https://github.com/raffifu/raffifu.github.io/assets/22138274/f890867e-bad8-408a-b0f8-ed5ef88b4f16"
+  description = "Blog tentang backend development, automation, cloud, dan teknologi"
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.highlight]
+    codeFences = false
 
 [taxonomies]
   tag = "tags"
 
 paginate = 5
+
+[sitemap]
+  changeFreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"

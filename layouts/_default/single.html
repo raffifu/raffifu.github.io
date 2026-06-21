@@ -1,4 +1,27 @@
 {{ define "main" }}
+    {{ if eq .Type "post" }}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "{{ .Title }}",
+        "description": "{{ if .Description }}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}"
+        },
+        "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}",
+        "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ .Permalink }}"
+        },
+        {{ if .Params.tags }}"keywords": [{{ range $i, $tag := .Params.tags }}{{ if $i }}, {{ end }}"{{ $tag }}"{{ end }}],{{ end }}
+        {{ if .Params.thumbnail }}"image": "{{ .Params.thumbnail | absURL }}",{{ end }}
+        "url": "{{ .Permalink }}"
+    }
+    </script>
+    {{ end }}
     <div class="d-flex flex-wrap justify-content-center text-muted font-monospace small mb-4">
         <span class="me-3">👤 {{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}</span>
         <span class="me-3">🗓️ {{ .Date.Format "02 January 2006" }}</span>
@@ -6,7 +29,7 @@
 
     {{ if .Params.thumbnail }}
     <div class="mb-4">
-        <img src="{{ .Params.thumbnail }}" alt="Post thumbnail" class="img-fluid rounded shadow-sm" style="width: 100%; object-fit: cover;" />
+        <img src="{{ .Params.thumbnail }}" alt="Thumbnail for: {{ .Title }}" class="img-fluid rounded shadow-sm" style="width: 100%; object-fit: cover;" />
     </div>
     {{ end }}
 
@@ -14,17 +37,41 @@
         {{ .Content }}
     </article>
 
-    {{ if .Params.tags }}
-    <div class="mt-5">
+    <div class="mt-5" style="padding-bottom: 4rem;">
         <hr class="mb-4" />
-        <p class="text-muted font-monospace small">
-            <i class="fas fa-tags me-2"></i>Tags: 
-            {{ range $index, $tag := .Params.tags }}
-                <a href="/tags/{{ $tag | urlize }}">{{ $tag }}</a>{{ if not (eq $index (sub (len $.Params.tags) 1)) }}, {{ end }}
+        <div class="d-flex align-items-center flex-wrap text-muted font-monospace small">
+            {{ if .Params.tags }}
+            <div class="me-3 mb-2 mb-md-0">
+                <i class="fas fa-tags me-2"></i>Tags: 
+                {{ range $index, $tag := .Params.tags }}
+                    <a href="/tags/{{ $tag | urlize }}">{{ $tag }}</a>{{ if not (eq $index (sub (len $.Params.tags) 1)) }}, {{ end }}
+                {{ end }}
+            </div>
+            <div class="me-3 mb-2 mb-md-0">|</div>
             {{ end }}
-        </p>
+            <div class="mb-2 mb-md-0">
+                <span id="copyLinkBtn" style="cursor: pointer;" class="text-decoration-none" role="button" tabindex="0" aria-label="Copy link">
+                    <i class="fas fa-link me-2"></i><span id="copyLinkText">Copy Link</span>
+                </span>
+            </div>
+        </div>
+        <div id="copyLinkAnnounce" class="visually-hidden" aria-live="polite"></div>
     </div>
-    {{ end }}
+
+    <script>
+        document.getElementById('copyLinkBtn').addEventListener('click', function() {
+            navigator.clipboard.writeText(window.location.href).then(function() {
+                const textSpan = document.getElementById('copyLinkText');
+                const originalText = textSpan.innerText;
+                textSpan.innerText = 'Copied!';
+                document.getElementById('copyLinkAnnounce').textContent = 'Link copied';
+                setTimeout(() => {
+                    textSpan.innerText = originalText;
+                    document.getElementById('copyLinkAnnounce').textContent = '';
+                }, 2000);
+            });
+        });
+    </script>
 
     <!-- Highlight.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>

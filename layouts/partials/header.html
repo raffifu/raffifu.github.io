@@ -19,14 +19,48 @@
 
     <h1 class="text-center font-monospace mb-4">
         {{ if $cmd }}
-        <span class="text-white">$ {{ $cmd }}</span>
+        <span>$ {{ $cmd }}</span>
         {{ end }}
         <span>{{ $text }}</span><span class="blinking-cursor">_</span>
     </h1>
-    <div class="d-flex justify-content-center">
-        <a class="font-monospace p-2" href="/">Home</a>
-        <a class="font-monospace p-2" href="/about/">About</a>
-        <a class="font-monospace p-2" href="/tags/">Tags</a>
+    <div class="d-flex justify-content-center align-items-center">
+        <a class="font-monospace p-2" href="/" {{ if .IsHome }}aria-current="page"{{ end }}>Home</a>
+        <a class="font-monospace p-2" href="/about/" {{ if .IsPage }}aria-current="page"{{ end }}>About</a>
+        <a class="font-monospace p-2" href="/tags/" {{ if eq .Kind "taxonomy" }}aria-current="page"{{ end }}>Tags</a>
         <a class="font-monospace p-2" href="/index.xml">RSS</a>
+        <div class="font-monospace position-relative p-2" id="settingsDropdownContainer">
+            <button id="settingsToggleBtn" title="Settings" aria-label="Settings" aria-expanded="false" aria-controls="settingsPanel">
+                <i class="fas fa-cog"></i>
+            </button>
+            <div id="settingsPanel" class="settings-panel"> <div class="mb-3"> <div class="fw-bold mb-1" style="font-size: 0.85rem;">Theme</div>
+                    <div class="d-flex w-100">
+                        <span class="theme-switch" data-theme="light" role="button" tabindex="0" aria-label="Light Theme" title="Light"><i class="fas fa-sun"></i></span>
+                        <span class="theme-switch" data-theme="dark" role="button" tabindex="0" aria-label="Dark Theme" title="Dark"><i class="fas fa-moon"></i></span>
+                        <span class="theme-switch" data-theme="dracula" role="button" tabindex="0" aria-label="Dracula Theme" title="Dracula"><i class="fas fa-ghost"></i></span>
+                        <span class="theme-switch" data-theme="solarized" role="button" tabindex="0" aria-label="Solarized Theme" title="Solarized"><i class="fas fa-water"></i></span>
+                    </div>
+                </div>
+                <div>
+                    <label for="contentWidthSlider" class="fw-bold mb-1" style="font-size: 0.85rem;">Content Width</label>
+                    <input type="range" class="form-range w-100" id="contentWidthSlider" min="500" max="1200" step="50" value="700">
+                </div>
+
+                <hr>
+                <div class="mb-3">
+                    <label for="fontFamilySelect" class="fw-bold mb-1" style="font-size: 0.85rem;">Font Family</label>
+                    <select id="fontFamilySelect" class="form-select w-100">
+                        <option value="'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">Sans-serif</option>
+                        <option value="'Lora', serif">Serif</option>
+                        <option value="'Courier New', Courier, monospace">Monospace</option>
+                        <option value="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">System UI</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="fontSizeSlider" class="fw-bold mb-1" style="font-size: 0.85rem;">Text Size</label>
+                    <input type="range" class="form-range w-100" id="fontSizeSlider" min="0.8" max="1.5" step="0.1" value="1.0">
+                </div>
+            </div>
+        </div>
     </div>
 </header>

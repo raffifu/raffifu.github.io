@@ -29,13 +29,19 @@
     {{ if gt $paginator.TotalPages 1 }}
     <div class="d-flex justify-content-between mt-5 font-monospace">
         {{ if $paginator.HasPrev }}
-        <a class="btn btn-outline-dark" href="{{ $paginator.Prev.URL }}">&lt; cd prev</a>
+        <a class="btn btn-outline-dark" href="{{ $paginator.Prev.URL }}">
+            <span aria-hidden="true">&lt; cd prev</span>
+            <span class="visually-hidden">Previous posts</span>
+        </a>
         {{ else }}
         <span></span>
         {{ end }}
         
         {{ if $paginator.HasNext }}
-        <a class="btn btn-outline-dark" href="{{ $paginator.Next.URL }}">cd next &gt;</a>
+        <a class="btn btn-outline-dark" href="{{ $paginator.Next.URL }}">
+            <span aria-hidden="true">cd next &gt;</span>
+            <span class="visually-hidden">Next posts</span>
+        </a>
         {{ else }}
         <span></span>
         {{ end }}

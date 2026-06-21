@@ -59,3 +59,111 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+    // Theme Switcher Logic
+    const themeSwitches = document.querySelectorAll('.theme-switch');
+    
+    function updateActiveThemeIcon(activeTheme) {
+        themeSwitches.forEach(btn => {
+            if (btn.getAttribute('data-theme') === activeTheme) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+
+    // Set initial active state
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    updateActiveThemeIcon(currentTheme);
+
+    themeSwitches.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const theme = btn.getAttribute('data-theme');
+            document.documentElement.setAttribute('data-bs-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateActiveThemeIcon(theme);
+        });
+
+        btn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                btn.click();
+            }
+        });
+    });
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    // Settings Panel Logic
+    const toggleBtn = document.getElementById('settingsToggleBtn');
+    const panel = document.getElementById('settingsPanel');
+    const container = document.getElementById('settingsDropdownContainer');
+    
+    if (toggleBtn && panel) {
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            panel.classList.toggle('show');
+            const isExpanded = panel.classList.contains('show');
+            toggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        });
+
+        // Prevent closing when clicking inside the panel
+        panel.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', () => {
+            panel.classList.remove('show');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+        });
+    }
+
+    // Typography Logic
+    const fontSelect = document.getElementById('fontFamilySelect');
+    const sizeSlider = document.getElementById('fontSizeSlider');
+    const widthSlider = document.getElementById('contentWidthSlider');
+
+    if (fontSelect) {
+        const savedFont = localStorage.getItem('fontFamily') || "'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif";
+        fontSelect.value = savedFont;
+        
+        fontSelect.addEventListener('change', (e) => {
+            const newFont = e.target.value;
+            document.documentElement.style.setProperty('--bs-body-font-family', newFont);
+            localStorage.setItem('fontFamily', newFont);
+        });
+    }
+
+    if (sizeSlider) {
+        const savedSize = localStorage.getItem('fontSize') || "1.0";
+        sizeSlider.value = savedSize;
+        
+        sizeSlider.addEventListener('input', (e) => {
+            const newSize = e.target.value;
+            document.documentElement.style.setProperty('--bs-body-font-size', newSize + 'rem');
+        });
+
+        sizeSlider.addEventListener('change', (e) => {
+            const newSize = e.target.value;
+            localStorage.setItem('fontSize', newSize);
+        });
+    }
+
+    if (widthSlider) {
+        const savedWidth = localStorage.getItem('contentWidth') || "700";
+        widthSlider.value = savedWidth;
+        
+        widthSlider.addEventListener('input', (e) => {
+            const newWidth = e.target.value;
+            document.documentElement.style.setProperty('--bs-content-width', newWidth + 'px');
+        });
+
+        widthSlider.addEventListener('change', (e) => {
+            const newWidth = e.target.value;
+            localStorage.setItem('contentWidth', newWidth);
+        });
+    }
+});
